@@ -1,6 +1,10 @@
-package dev.java.registrationOfIndividuals;
+package dev.java.registrationOfIndividuals.Users;
 
+import dev.java.registrationOfIndividuals.Professions.ProfessionsModel;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // Entity - turns the class into an entity
 // JPA - Java Persistence API
@@ -15,6 +19,11 @@ public class UserModel {
    private String email;
    private int age;
 
+   // @ManyToOne, um usuário para uma missão
+   @ManyToOne
+   @JoinColumn(name = "profession_id") // Foreing Key
+   private ProfessionsModel professions;
+
     public UserModel() { // No Args
     }
 
@@ -23,8 +32,6 @@ public class UserModel {
         this.email = email;
         this.age = age;
     }
-
-
 
     public String getName() {
         return name;
