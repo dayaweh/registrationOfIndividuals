@@ -2,11 +2,17 @@ package dev.java.registrationOfIndividuals.Professions;
 
 import dev.java.registrationOfIndividuals.Users.UserModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name="tb_professions")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class ProfessionsModel {
 
 
@@ -19,33 +25,6 @@ public class ProfessionsModel {
     // Uma profissão pode ter vários usuários
     @OneToMany(mappedBy = "professions")
     private List<UserModel> user;
-
-    public ProfessionsModel() {
-    }
-
-    public ProfessionsModel(String profession, boolean professionStatus, UserModel user) {
-        this.profession = profession;
-        this.professionStatus = professionStatus;
-    }
-
-
-
-    public String getProfession() {
-        return profession;
-    }
-
-    public void setProfession(String profession) {
-        this.profession = profession;
-    }
-
-
-    public boolean isProfessionStatus() {
-        return professionStatus;
-    }
-
-    public void setProfessionStatus(boolean professionStatus) {
-        this.professionStatus = professionStatus;
-    }
 
 
 }

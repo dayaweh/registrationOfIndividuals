@@ -2,6 +2,9 @@ package dev.java.registrationOfIndividuals.Users;
 
 import dev.java.registrationOfIndividuals.Professions.ProfessionsModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +13,9 @@ import java.util.List;
 // JPA - Java Persistence API
 @Entity  // Entity notation for databases
 @Table(name= "tb_user_registration") // Generation table registration for db
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class UserModel {
 
     @Id // The @Id annotation indicates that the first attribute below it is the ID.
@@ -24,38 +30,6 @@ public class UserModel {
    @JoinColumn(name = "profession_id") // Foreing Key
    private ProfessionsModel professions;
 
-    public UserModel() { // No Args
-    }
-
-    public UserModel(String name, String email, int age) { // All-Args
-        this.name = name;
-        this.email = email;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
 
 }
