@@ -21,12 +21,18 @@ public class UserModel {
     @Id // The @Id annotation indicates that the first attribute below it is the ID.
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name="name")
    private String name;
 
    @Column(unique = true)
    private String email;
 
+   @Column(name = "img_url")
+   private String imgUrl;
 
+
+   @Column(name = "age")
    private int age;
 
    // @ManyToOne, um usuário para uma missão
